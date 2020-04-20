@@ -1,85 +1,13 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="en">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="utf-8">
+  
 
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="OSI参考模型产生背景123各大设备厂商只支持自己的私有协议，跨厂商设备兼容性差用户购买和维护成本高不利于网络技术发展    概念1定义了网络中设备所遵守的层次结构    优点12345开放标准化接口，协议不再封闭多厂商设备兼容易于理解、学习和更新协议标准实现模块化工程，降低开发难度便于故障排除    分层1.物理层1定义了电压、接口、线缆标准、传输距离、传输介质等物理参数  2.数据链路层1MA">
+  <title>网络参考模型 | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="OSI参考模型产生背景123各大设备厂商只支持自己的私有协议，跨厂商设备兼容性差用户购买和维护成本高不利于网络技术发展    概念1定义了网络中设备所遵守的层次结构    优点12345开放标准化接口，协议不再封闭多厂商设备兼容易于理解、学习和更新协议标准实现模块化工程，降低开发难度便于故障排除    分层1.物理层1定义了电压、接口、线缆标准、传输距离、传输介质等物理参数  2.数据链路层1MA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络参考模型">
 <meta property="og:url" content="http://yoursite.com/2020/04/20/%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/index.html">
@@ -90,214 +18,75 @@
 <meta property="article:modified_time" content="2020-04-20T07:46:04.915Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2020/04/20/网络参考模型/"/>
-
-
-
-
-
-  <title>网络参考模型 | 学习笔记</title>
   
-
-
-
-
-
-
-
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">学习笔记</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
   </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-网络参考模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/20/%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time datetime="2020-04-20T05:33:08.880Z" itemprop="datePublished">2020-04-20</time>
+</a>
+    
   </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+  <div class="article-inner">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/20/%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学习笔记">
-    </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">网络参考模型</h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      网络参考模型
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-20T13:33:08+08:00">
-                2020-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+    <div class="article-entry" itemprop="articleBody">
       
         <h2 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h2><h4 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">各大设备厂商只支持自己的私有协议，跨厂商设备兼容性差</span><br><span class="line">用户购买和维护成本高</span><br><span class="line">不利于网络技术发展</span><br></pre></td></tr></table></figure>
 
@@ -335,337 +124,93 @@
 
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/20/%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" data-id="ck985n2p00000zovzc1qoddug" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
     
-    <div class="sidebar-inner">
+  
+</article>
 
-      
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/20/%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">网络参考模型</a>
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI参考模型"><span class="nav-number">1.</span> <span class="nav-text">OSI参考模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#产生背景"><span class="nav-number">1.0.1.</span> <span class="nav-text">产生背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.0.2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.0.3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分层"><span class="nav-number">1.0.4.</span> <span class="nav-text">分层</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-物理层"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">1.物理层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数据链路层"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">2.数据链路层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-网络层"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">3.网络层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-传输层"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">4.传输层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-会话层"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">5.会话层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-表示层"><span class="nav-number">1.0.4.6.</span> <span class="nav-text">6.表示层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-应用层"><span class="nav-number">1.0.4.7.</span> <span class="nav-text">7.应用层</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP参考模型"><span class="nav-number">2.</span> <span class="nav-text">TCP&#x2F;IP参考模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4层划分方法"><span class="nav-number">2.0.1.</span> <span class="nav-text">4层划分方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-网络接口层：物理层、数据链路层"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">1.网络接口层：物理层、数据链路层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-网络层"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">2.网络层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-传输层"><span class="nav-number">2.0.1.3.</span> <span class="nav-text">3.传输层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-应用层：会话层、表示层、应用层"><span class="nav-number">2.0.1.4.</span> <span class="nav-text">4.应用层：会话层、表示层、应用层</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5层划分方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">5层划分方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-物理层-1"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">1.物理层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数据链路层-1"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">2.数据链路层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-网络层-1"><span class="nav-number">2.0.2.3.</span> <span class="nav-text">3.网络层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-传输层-1"><span class="nav-number">2.0.2.4.</span> <span class="nav-text">4.传输层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-应用层：会话层、表示层、应用层"><span class="nav-number">2.0.2.5.</span> <span class="nav-text">5.应用层：会话层、表示层、应用层</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据封装和解封装"><span class="nav-number">3.</span> <span class="nav-text">数据封装和解封装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">3.0.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#封装"><span class="nav-number">3.0.1.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解封装"><span class="nav-number">3.0.1.2.</span> <span class="nav-text">解封装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP分层封装"><span class="nav-number">3.0.2.</span> <span class="nav-text">TCP&#x2F;IP分层封装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-物理层：比特流"><span class="nav-number">3.0.2.1.</span> <span class="nav-text">1.物理层：比特流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数据链路层：数据帧"><span class="nav-number">3.0.2.2.</span> <span class="nav-text">2.数据链路层：数据帧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-网络层：数据包"><span class="nav-number">3.0.2.3.</span> <span class="nav-text">3.网络层：数据包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-传输层：数据段"><span class="nav-number">3.0.2.4.</span> <span class="nav-text">4.传输层：数据段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-应用层：数据"><span class="nav-number">3.0.2.5.</span> <span class="nav-text">5.应用层：数据</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据封装和解封过程"><span class="nav-number">3.0.3.</span> <span class="nav-text">数据封装和解封过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据发送时，从上至下逐层封装"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">数据发送时，从上至下逐层封装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据接收时，从下至上逐层解封装"><span class="nav-number">3.0.3.2.</span> <span class="nav-text">数据接收时，从下至上逐层解封装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#只有拆除外侧封装，才能看到内存封装"><span class="nav-number">3.0.3.3.</span> <span class="nav-text">只有拆除外侧封装，才能看到内存封装</span></a></li></ol></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+        
+      </ul>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
   </div>
 
   
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
   
-
-
-
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
-	
+<script src="/js/script.js"></script>
 
 
 
 
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+  </div>
 </body>
 </html>
