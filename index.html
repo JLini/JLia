@@ -76,7 +76,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: true
     }
 </script>
 
@@ -109,48 +109,15 @@
         
 
         
-
-
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
-                        
-                        <li>Friends</li>
-                        
-                        
-                        <li>About Me</li>
-                        
-                    </ul>
-                </div>
-            </div>
+
+
         
 
         <div id="switch-area" class="switch-area">
@@ -182,12 +149,6 @@
                     </nav>
                 </section>
                 
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        
-                    </div>
-                </section>
                 
                 
                 
@@ -291,24 +252,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"><a href="#定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口" class="headerlink" title="定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"></a>定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口</h5><hr>
-<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">提高链路可靠性		聚合组内只要还有物理端口存活，链路就不会中断</span><br><span class="line"></span><br><span class="line">增加链路传输带宽	避免了STP计算，聚合组内物理端口不会被堵塞</span><br><span class="line">				 交换机之间的流量会自动在聚合组内的所有物理端口上负载分担</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="负载分担"><a href="#负载分担" class="headerlink" title="负载分担"></a>负载分担</h4><ul>
-<li><h5 id="也称负载均衡"><a href="#也称负载均衡" class="headerlink" title="也称负载均衡"></a>也称负载均衡</h5></li>
-<li><h5 id="聚合后的链路会基于流自动负载分担"><a href="#聚合后的链路会基于流自动负载分担" class="headerlink" title="聚合后的链路会基于流自动负载分担"></a>聚合后的链路会基于流自动负载分担</h5></li>
-</ul>
-<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[h3c]interface bridge-aggregation &#39;number&#39;</span><br><span class="line">创建聚合端⼝口，进⼊入聚合端⼝口视图 </span><br><span class="line"></span><br><span class="line">[h3c-GigabitEthernet 1&#x2F;0&#x2F;1]port link-aggregation group &#39;number&#39; </span><br><span class="line">物理理接⼝口加⼊入聚合组 </span><br><span class="line"></span><br><span class="line">[h3c]display link-aggregation summary </span><br><span class="line">查看聚合链路路信息</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
-
+              链路聚合的定义和功能，及常用到的H3C命令
+          
       
     </div>
     
@@ -321,6 +266,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2020/04/21/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -367,34 +316,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="计算机网络定义：一组自治计算机互联的集合"><a href="#计算机网络定义：一组自治计算机互联的集合" class="headerlink" title="计算机网络定义：一组自治计算机互联的集合"></a>计算机网络定义：一组自治计算机互联的集合</h5><hr>
-<h4 id="计算机网络基本功能"><a href="#计算机网络基本功能" class="headerlink" title="计算机网络基本功能"></a>计算机网络基本功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.资源共享</span><br><span class="line"></span><br><span class="line">2.综合信息服务</span><br><span class="line"></span><br><span class="line">3.分布式处理与负载均衡</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="计算机网络的类型"><a href="#计算机网络的类型" class="headerlink" title="计算机网络的类型"></a>计算机网络的类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">局域网 LAN：由用户自信建设， 使用私有地址组建的网络</span><br><span class="line">城域网 MAN：由运营商或大规模企业建设，链接城市范围的网络</span><br><span class="line">广域网 WAN：由运营商建设，连接全国各个城域网的网络，又称骨干网、核心网、传输网</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="网络拓扑"><a href="#网络拓扑" class="headerlink" title="网络拓扑"></a>网络拓扑</h4><h5 id="定义：网络设备链接的方式"><a href="#定义：网络设备链接的方式" class="headerlink" title="定义：网络设备链接的方式"></a>定义：网络设备链接的方式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">总线型拓扑：	所有设备共享一条公共线路</span><br><span class="line">			线路中断会导致所有设备中断</span><br><span class="line"></span><br><span class="line">环型拓扑：所有设备共享一条环型总线</span><br><span class="line">		有一定冗余性</span><br><span class="line"></span><br><span class="line">星型拓扑：其他节点都与中央节点直接相连</span><br><span class="line">		某条线路中断不会影响其他节点</span><br><span class="line">		中央节点故障会导致全网中断</span><br><span class="line"></span><br><span class="line">树型拓扑：星型拓扑的进一步发散型</span><br><span class="line">		优点：结构简单，组网成本低，维护管理容易</span><br><span class="line">		缺点：中央节点压力大，可靠性差</span><br><span class="line"></span><br><span class="line">网状拓扑：节点之间很多条线路可达</span><br><span class="line">		优点：可靠性高</span><br><span class="line">		缺点：组网成本高，维护管理复杂</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="衡量网络性能的指标"><a href="#衡量网络性能的指标" class="headerlink" title="衡量网络性能的指标"></a>衡量网络性能的指标</h4><pre><code>带宽
-    定义：代为直接内能够传输的数据总量        单位：bps
-    带宽越大，网络质量越好
-
-延迟
-    定义：数据从一个节点到达另一个节点消耗的时间        单位：ms
-    延迟越低，网络质量越好</code></pre><hr>
-<h4 id="数据单位"><a href="#数据单位" class="headerlink" title="数据单位"></a>数据单位</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1Kb&#x3D;1024b</span><br><span class="line">1Mb&#x3D;1024Kb</span><br><span class="line">1Gb&#x3D;1024Mb</span><br><span class="line"></span><br><span class="line">Byte	字节，一个数字或字母占用1字节，一个汉字占用2字节</span><br><span class="line">bit		比特，1Bye&#x3D;8bit</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="协议和标准"><a href="#协议和标准" class="headerlink" title="协议和标准"></a>协议和标准</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">协议：数据通讯双方共同遵守的通讯规则</span><br><span class="line"></span><br><span class="line">标准：公认的，所有厂商所共同遵守的协议规则</span><br><span class="line"></span><br><span class="line">标准化组织</span><br><span class="line">	制定定义国际公认参考标准的组织团体</span><br><span class="line">	常见的国际标准组织</span><br><span class="line">		ISO		国际标准化组织</span><br><span class="line">		IEEE	电子电器工程师协会</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
-
+              计算机网络的基本功能及类型，计算机网络拓扑结构，协议和标准
+          
       
     </div>
     
@@ -407,6 +330,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2020/04/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -453,40 +380,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h2><h4 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">各大设备厂商只支持自己的私有协议，跨厂商设备兼容性差</span><br><span class="line">用户购买和维护成本高</span><br><span class="line">不利于网络技术发展</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定义了网络中设备所遵守的层次结构</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">开放标准化接口，协议不再封闭</span><br><span class="line">多厂商设备兼容</span><br><span class="line">易于理解、学习和更新协议标准</span><br><span class="line">实现模块化工程，降低开发难度</span><br><span class="line">便于故障排除</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1.物理层：定义了电压、接口、线缆标准、传输距离、传输介质等物理参数</span><br><span class="line"></span><br><span class="line">2.数据链路层：MAC地址寻址</span><br><span class="line"></span><br><span class="line">3.网络层：IP地址寻址、路由</span><br><span class="line"></span><br><span class="line">4.传输层：数据分段、建立端到端连接、维护传输可靠性</span><br><span class="line">		端口用于区分同一台计算机上的不同应用程序</span><br><span class="line">		TCP:可靠的传输</span><br><span class="line">		UDP:不可靠的传输</span><br><span class="line"></span><br><span class="line">5.会话层：建立、维护、拆除应用程序间的会话</span><br><span class="line">		区分同一个应用程序的不同访问者</span><br><span class="line"></span><br><span class="line">6.表示层：定义数据格式、结构；数据加密、压缩</span><br><span class="line"></span><br><span class="line">7.应用层：为应用程序进程提供网络服务</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<h2 id="TCP-IP参考模型"><a href="#TCP-IP参考模型" class="headerlink" title="TCP/IP参考模型"></a>TCP/IP参考模型</h2><h4 id="4层划分方法"><a href="#4层划分方法" class="headerlink" title="4层划分方法"></a>4层划分方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.网络接口层：物理层、数据链路层</span><br><span class="line"></span><br><span class="line">2.网络层</span><br><span class="line"></span><br><span class="line">3.传输层</span><br><span class="line"></span><br><span class="line">4.应用层：会话层、表示层、应用层</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="5层划分方法"><a href="#5层划分方法" class="headerlink" title="5层划分方法"></a>5层划分方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.物理层</span><br><span class="line"></span><br><span class="line">2.数据链路层</span><br><span class="line"></span><br><span class="line">3.网络层</span><br><span class="line"></span><br><span class="line">4.传输层</span><br><span class="line"></span><br><span class="line">5.应用层：会话层、表示层、应用层</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<h2 id="数据封装和解封装"><a href="#数据封装和解封装" class="headerlink" title="数据封装和解封装"></a>数据封装和解封装</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">封装：在原始数据的基础上加入一些额外信息形成新的格式</span><br><span class="line"></span><br><span class="line">解封装：拆除掉封装的额外信息，还原成原始数据</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="TCP-IP分层封装"><a href="#TCP-IP分层封装" class="headerlink" title="TCP/IP分层封装"></a>TCP/IP分层封装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.物理层：比特流</span><br><span class="line"></span><br><span class="line">2.数据链路层：数据帧</span><br><span class="line"></span><br><span class="line">3.网络层：数据包</span><br><span class="line"></span><br><span class="line">4.传输层：数据段</span><br><span class="line"></span><br><span class="line">5.应用层：数据</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="数据封装和解封过程"><a href="#数据封装和解封过程" class="headerlink" title="数据封装和解封过程"></a>数据封装和解封过程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数据发送时，从上至下逐层封装</span><br><span class="line"></span><br><span class="line">数据接收时，从下至上逐层解封装</span><br><span class="line"></span><br><span class="line">只有拆除外侧封装，才能看到内存封装</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
-
+              OSI参考模型，TCP/IP参考模型，数据封装解封装
+          
       
     </div>
     
@@ -499,6 +394,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2020/04/21/%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -545,40 +444,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><h5 id="定义-传输标准Ethernet-Ⅱ类型帧的网络"><a href="#定义-传输标准Ethernet-Ⅱ类型帧的网络" class="headerlink" title="定义    传输标准Ethernet Ⅱ类型帧的网络"></a>定义    传输标准Ethernet Ⅱ类型帧的网络</h5><h5 id="特征-多路访问，广播式的网络"><a href="#特征-多路访问，广播式的网络" class="headerlink" title="特征    多路访问，广播式的网络"></a>特征    多路访问，广播式的网络</h5><hr>
-<h4 id="Mac-地址"><a href="#Mac-地址" class="headerlink" title="Mac 地址"></a>Mac 地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">每台网络设备生产时就会写入的一个全球唯一的物理地址</span><br><span class="line">48位长度，16进制格式地址</span><br><span class="line">前24位为厂商标识，后24时设备标识</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="以太网帧格式"><a href="#以太网帧格式" class="headerlink" title="以太网帧格式"></a>以太网帧格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">目的Mac地址</span><br><span class="line">源Mac地址</span><br><span class="line">服务和类型</span><br><span class="line">DATA</span><br><span class="line">帧校验序列</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h2><h5 id="定义-工作在数据链路层，通过识别Mac地址来进行数据转发的设备"><a href="#定义-工作在数据链路层，通过识别Mac地址来进行数据转发的设备" class="headerlink" title="定义    工作在数据链路层，通过识别Mac地址来进行数据转发的设备"></a>定义    工作在数据链路层，通过识别Mac地址来进行数据转发的设备</h5><hr>
-<h4 id="交换机数据转发原理"><a href="#交换机数据转发原理" class="headerlink" title="交换机数据转发原理"></a>交换机数据转发原理</h4><ul>
-<li><h5 id="MAC地址表"><a href="#MAC地址表" class="headerlink" title="MAC地址表"></a>MAC地址表</h5></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">记录交换机每个端口和所连接的设备的MAC地址的映射关系</span><br><span class="line">一个接口可以对应多歌Mac地址</span><br><span class="line">一个Mac地址不能对应多个接口</span><br><span class="line">老化时间：300秒</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h5 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h5></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">交换机学习数据帧的源MAC地址，赖活着端口和设备MAC地址的映射关系，写入MAC地址表</span><br><span class="line">交换机检查数据帧的目的MAC地址，从MAC地址表中的映射关系来判断把数据帧从哪个端口法出</span><br><span class="line">交换机对于目的MAC地址不存在于MAC地址表中的数据帧进行广播处理</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h5 id="数据帧的转发方式"><a href="#数据帧的转发方式" class="headerlink" title="数据帧的转发方式"></a>数据帧的转发方式</h5></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于目的MAC地址已知的单播帧，交换机查询MAC地址表进行转发</span><br><span class="line">对于目的MAC地址已知的单播帧，交换机进行广播处理</span><br><span class="line">对于广播帧，交换机继续广播处理</span><br></pre></td></tr></table></figure>
-
-<h4 id="数据传输模式"><a href="#数据传输模式" class="headerlink" title="数据传输模式"></a>数据传输模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单播	接收者是某一个设备</span><br><span class="line">广播	接收者是所有其他设备</span><br><span class="line">组播	接收者是某一部分设备</span><br></pre></td></tr></table></figure>
-
-<h4 id="广播域"><a href="#广播域" class="headerlink" title="广播域"></a>广播域</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">网络中所有能接受同样广播消息的设备的集合</span><br><span class="line">默认情况下，交换机的所有端口属于同一个广播域</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
-
+              以太网相关理论和交换机工作原理
+          
       
     </div>
     
@@ -591,6 +458,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2020/04/21/%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -637,29 +508,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h4 id="VLAN的定义"><a href="#VLAN的定义" class="headerlink" title="VLAN的定义"></a>VLAN的定义</h4><ul>
-<li><h5 id="虚拟局域网，用来在二层网络中隔离广播域"><a href="#虚拟局域网，用来在二层网络中隔离广播域" class="headerlink" title="虚拟局域网，用来在二层网络中隔离广播域"></a>虚拟局域网，用来在二层网络中隔离广播域</h5></li>
-<li><h5 id="不同VLAN的设备在二层网络中无法互相通讯"><a href="#不同VLAN的设备在二层网络中无法互相通讯" class="headerlink" title="不同VLAN的设备在二层网络中无法互相通讯"></a>不同VLAN的设备在二层网络中无法互相通讯</h5></li>
-</ul>
-<hr>
-<h4 id="VLAN的转发过程举例"><a href="#VLAN的转发过程举例" class="headerlink" title="VLAN的转发过程举例"></a>VLAN的转发过程举例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. PC发送数据帧进⼊入交换机，会被打上vlan tag；vlan tag中的vlan id就是收到 帧的接⼝口的所属vlan；⼀一旦数据帧被打上vlan tag，就变成了了802.1Q格式的帧 </span><br><span class="line"></span><br><span class="line">2.交换机检查数据帧的⽬目的MAC地址，进⾏行行判断；如果⽬目的MAC对应的接⼝口允许 tag中的vlan id通过，则数据帧可以转发；否则，⼴广播处理理该帧&#x2F;丢弃该帧 </span><br><span class="line"></span><br><span class="line">3.数据帧从出接⼝口发往PC前，会剥离vlan tag，使之还原为标准的以太⽹网帧格式</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="802-1Q"><a href="#802-1Q" class="headerlink" title="802.1Q"></a>802.1Q</h4><ul>
-<li><h5 id="在源Mac地址和Type之间携带vlan-tag的帧格式，计算机不不识别"><a href="#在源Mac地址和Type之间携带vlan-tag的帧格式，计算机不不识别" class="headerlink" title="在源Mac地址和Type之间携带vlan tag的帧格式，计算机不不识别"></a>在源Mac地址和Type之间携带vlan tag的帧格式，计算机不不识别</h5></li>
-</ul>
-<hr>
-<h4 id="VLAN工作原理"><a href="#VLAN工作原理" class="headerlink" title="VLAN工作原理"></a>VLAN工作原理</h4><ul>
-<li><h5 id="交换机端口类型"><a href="#交换机端口类型" class="headerlink" title="交换机端口类型"></a>交换机端口类型</h5></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Access</span><br><span class="line">	必须加⼊入到一个vlan，只能加⼊入到一个vlan；从access端口收到的帧，会打上该端口所属vlan的tag；从access端口发出的帧会剥离tag ；</span><br><span class="line">	一般用来连接PC或路由器 ；</span><br><span class="line">	H3C交换机默认所有端口都是access类型属于vlan1；华为是hybrid。</span><br><span class="line"></span><br><span class="line">Trunk</span><br><span class="line">	可以允许多个vlan的数据通过；从trunk端口发出的帧保留vlan tag，但是缺省vlan除外； trunk端口收到未打tag的帧，会重新打上缺省vlan的tag ；</span><br><span class="line">	一般用来连接交换机。</span><br><span class="line">Hybrid</span><br><span class="line">	可以允许多个vlan的数据通过；可以⼿手动配置从Hybrid端口发出的帧，哪个vlan保留留tag，哪个vlan剥离tag；Hybrid收到未打tag的帧，会重新打上缺省vlan的tag ；</span><br><span class="line">	既可以连接PC&#x2F;路由器，也可以连接交换机。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
-
+              VLAN的定义和转发过程，VLAN的工作原理
+          
       
     </div>
     
@@ -672,6 +522,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2020/04/21/Vlan%E5%92%8CTrunk/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -718,16 +572,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><h4 id="定义：网络层地址"><a href="#定义：网络层地址" class="headerlink" title="定义：网络层地址"></a>定义：网络层地址</h4><h4 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">32位长度，点分十进制</span><br><span class="line">有网络位+主机位组成</span><br><span class="line">网络位长度和数字完全一致的地址属于同一网段</span><br></pre></td></tr></table></figure>
-
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">A类</span><br><span class="line">	地址范围	1.X.X.X ~ 126.X.X.X</span><br><span class="line">	网络位划分	前8位为网络位，后24位为主机位</span><br><span class="line"></span><br><span class="line">B类</span><br><span class="line">	地址范围	128.X.X.X ~ 191.X.X.X</span><br><span class="line">	网络位划分	前16位为网络位，后16位为主机位</span><br><span class="line"></span><br><span class="line">C类</span><br><span class="line">	地址范围	192.X.X.X ~ 223.X.X.X</span><br><span class="line">	网络位划分	前24位为网络位，后8位为主机位</span><br><span class="line"></span><br><span class="line">D类</span><br><span class="line">	地址范围	224.X.X.X ~ 239.X.X.X</span><br><span class="line">	网络位划分	组播地址，不可用于配置为主机地址</span><br><span class="line">	</span><br><span class="line">E类</span><br><span class="line">	地址范围	240.X.X.X ~ 255.X.X.X</span><br><span class="line">	网络位划分	科研用地址，不对公开放</span><br><span class="line"></span><br><span class="line">IP地址分类用来划分不同的网络规模</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
-
+              IP地址的格式与分类，各类地址的地址范围和网络位划分
+          
       
     </div>
     
@@ -740,6 +586,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2020/04/21/IP%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -786,20 +636,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h4 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">产生背景</span><br><span class="line">	通过自然分类来划分网络规模会造成大量IP地址浪费</span><br><span class="line">	IPv4地址资源已经全部耗尽</span><br><span class="line">	</span><br><span class="line">定义</span><br><span class="line">	由连续的二级制1或0组成的32位掩码，用来衡量IP地网络位的长度</span><br><span class="line">	1对应的部分为网络位</span><br><span class="line">	0对应的部分为主机位</span><br><span class="line"></span><br><span class="line">分类</span><br><span class="line">	主类掩码：和自然分类一致的子网掩码</span><br><span class="line">	VLSM：可变长子网掩码</span><br><span class="line">		  通过子网掩码变长来把一个网段划分为多个子网</span><br><span class="line">	CIDR：无类别域间路由</span><br><span class="line">		  给用户分配IP地址以及在互联网上有效地路由IP数据包的对IP地址进行归类</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="VLSM算法"><a href="#VLSM算法" class="headerlink" title="VLSM算法"></a>VLSM算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.得出下列参数</span><br><span class="line">	掩码借位数	把掩码的多少个0变成了1</span><br><span class="line">	掩码剩余位数</span><br><span class="line">	本段掩码剩余位数</span><br><span class="line"></span><br><span class="line">2.计算划分结果</span><br><span class="line">	划分出的子网			2^(借位数)</span><br><span class="line">	每个子网可用的IP地址数	2^(剩余位数)-2</span><br><span class="line">	每两个子网的间隔位数		2^(本段剩余位数)</span><br><span class="line">	</span><br><span class="line">3.列出每个子网</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="常见子网划分对应关系"><a href="#常见子网划分对应关系" class="headerlink" title="常见子网划分对应关系"></a>常见子网划分对应关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">25		255.255.255.128		126个可用地址</span><br><span class="line">26		255.255.255.192		62个可用地址</span><br><span class="line">27		255.255.255.224		30个可用地址</span><br><span class="line">28		255.255.255.240		14个可用地址</span><br><span class="line">29		255.255.255.248		6个可用地址</span><br><span class="line">30		255.255.255.252		2个可用地址</span><br><span class="line">31		255.255.255.254		2个可用地址		PPP链路可用</span><br><span class="line">32		255.255.255.255		1个可用地址		设备的Loopback接口可用</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
-
+              子网掩码的划分和常用的算法
+          
       
     </div>
     
@@ -812,6 +650,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2020/04/21/IP%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -913,6 +755,23 @@
         }
     
 </script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
