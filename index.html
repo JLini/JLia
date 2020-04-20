@@ -64,6 +64,117 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Vlan和Trunk" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/20/Vlan%E5%92%8CTrunk/" class="article-date">
+  <time datetime="2020-04-20T15:32:57.703Z" itemprop="datePublished">2020-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/20/Vlan%E5%92%8CTrunk/">Vlan和Trunk</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="VLAN的定义"><a href="#VLAN的定义" class="headerlink" title="VLAN的定义"></a>VLAN的定义</h4><ul>
+<li><h5 id="虚拟局域网，用来在二层网络中隔离广播域"><a href="#虚拟局域网，用来在二层网络中隔离广播域" class="headerlink" title="虚拟局域网，用来在二层网络中隔离广播域"></a>虚拟局域网，用来在二层网络中隔离广播域</h5></li>
+<li><h5 id="不同VLAN的设备在二层网络中无法互相通讯"><a href="#不同VLAN的设备在二层网络中无法互相通讯" class="headerlink" title="不同VLAN的设备在二层网络中无法互相通讯"></a>不同VLAN的设备在二层网络中无法互相通讯</h5></li>
+</ul>
+<hr>
+<h4 id="VLAN的转发过程举例"><a href="#VLAN的转发过程举例" class="headerlink" title="VLAN的转发过程举例"></a>VLAN的转发过程举例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. PC发送数据帧进⼊入交换机，会被打上vlan tag；vlan tag中的vlan id就是收到 帧的接⼝口的所属vlan；⼀一旦数据帧被打上vlan tag，就变成了了802.1Q格式的帧 </span><br><span class="line"></span><br><span class="line">2.交换机检查数据帧的⽬目的MAC地址，进⾏行行判断；如果⽬目的MAC对应的接⼝口允许 tag中的vlan id通过，则数据帧可以转发；否则，⼴广播处理理该帧&#x2F;丢弃该帧 </span><br><span class="line"></span><br><span class="line">3.数据帧从出接⼝口发往PC前，会剥离vlan tag，使之还原为标准的以太⽹网帧格式</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="802-1Q"><a href="#802-1Q" class="headerlink" title="802.1Q"></a>802.1Q</h4><ul>
+<li><h5 id="在源Mac地址和Type之间携带vlan-tag的帧格式，计算机不不识别"><a href="#在源Mac地址和Type之间携带vlan-tag的帧格式，计算机不不识别" class="headerlink" title="在源Mac地址和Type之间携带vlan tag的帧格式，计算机不不识别"></a>在源Mac地址和Type之间携带vlan tag的帧格式，计算机不不识别</h5></li>
+</ul>
+<hr>
+<h4 id="VLAN工作原理"><a href="#VLAN工作原理" class="headerlink" title="VLAN工作原理"></a>VLAN工作原理</h4><ul>
+<li><h5 id="交换机端口类型"><a href="#交换机端口类型" class="headerlink" title="交换机端口类型"></a>交换机端口类型</h5></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Access</span><br><span class="line">	必须加⼊入到一个vlan，只能加⼊入到一个vlan；从access端口收到的帧，会打上该端口所属vlan的tag；从access端口发出的帧会剥离tag ；</span><br><span class="line">	一般用来连接PC或路由器 ；</span><br><span class="line">	H3C交换机默认所有端口都是access类型属于vlan1；华为是hybrid。</span><br><span class="line"></span><br><span class="line">Trunk</span><br><span class="line">	可以允许多个vlan的数据通过；从trunk端口发出的帧保留vlan tag，但是缺省vlan除外； trunk端口收到未打tag的帧，会重新打上缺省vlan的tag ；</span><br><span class="line">	一般用来连接交换机。</span><br><span class="line">Hybrid</span><br><span class="line">	可以允许多个vlan的数据通过；可以⼿手动配置从Hybrid端口发出的帧，哪个vlan保留留tag，哪个vlan剥离tag；Hybrid收到未打tag的帧，会重新打上缺省vlan的tag ；</span><br><span class="line">	既可以连接PC&#x2F;路由器，也可以连接交换机。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p>若本文档有错误</p>
+<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
+<p>电脑端联系作者QQ:2020379570</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/20/Vlan%E5%92%8CTrunk/" data-id="ck98ncu6v0001ikvza7a2aiyo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-链路聚合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/" class="article-date">
+  <time datetime="2020-04-20T14:25:30.389Z" itemprop="datePublished">2020-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/">链路聚合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"><a href="#定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口" class="headerlink" title="定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"></a>定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口</h5><hr>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">提高链路可靠性		聚合组内只要还有物理端口存活，链路就不会中断</span><br><span class="line"></span><br><span class="line">增加链路传输带宽	避免了STP计算，聚合组内物理端口不会被堵塞</span><br><span class="line">				 交换机之间的流量会自动在聚合组内的所有物理端口上负载分担</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="负载分担"><a href="#负载分担" class="headerlink" title="负载分担"></a>负载分担</h4><ul>
+<li><h5 id="也称负载均衡"><a href="#也称负载均衡" class="headerlink" title="也称负载均衡"></a>也称负载均衡</h5></li>
+<li><h5 id="聚合后的链路会基于流自动负载分担"><a href="#聚合后的链路会基于流自动负载分担" class="headerlink" title="聚合后的链路会基于流自动负载分担"></a>聚合后的链路会基于流自动负载分担</h5></li>
+</ul>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[h3c]interface bridge-aggregation &#39;number&#39;</span><br><span class="line">创建聚合端⼝口，进⼊入聚合端⼝口视图 </span><br><span class="line"></span><br><span class="line">[h3c-GigabitEthernet 1&#x2F;0&#x2F;1]port link-aggregation group &#39;number&#39; </span><br><span class="line">物理理接⼝口加⼊入聚合组 </span><br><span class="line"></span><br><span class="line">[h3c]display link-aggregation summary </span><br><span class="line">查看聚合链路路信息</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<hr>
+<p>若本文档有错误</p>
+<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
+<p>电脑端联系作者QQ:2020379570</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/" data-id="ck98ncu780002ikvz88r37yxp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-IP子网划分" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/20/IP%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/" class="article-date">
@@ -113,6 +224,75 @@
 
 
   
+    <article id="post-以太网交换机工作原理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/20/%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="article-date">
+  <time datetime="2020-04-20T14:23:29.565Z" itemprop="datePublished">2020-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/20/%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">以太网交换机工作原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><h5 id="定义-传输标准Ethernet-Ⅱ类型帧的网络"><a href="#定义-传输标准Ethernet-Ⅱ类型帧的网络" class="headerlink" title="定义    传输标准Ethernet Ⅱ类型帧的网络"></a>定义    传输标准Ethernet Ⅱ类型帧的网络</h5><h5 id="特征-多路访问，广播式的网络"><a href="#特征-多路访问，广播式的网络" class="headerlink" title="特征    多路访问，广播式的网络"></a>特征    多路访问，广播式的网络</h5><hr>
+<h4 id="Mac-地址"><a href="#Mac-地址" class="headerlink" title="Mac 地址"></a>Mac 地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">每台网络设备生产时就会写入的一个全球唯一的物理地址</span><br><span class="line">48位长度，16进制格式地址</span><br><span class="line">前24位为厂商标识，后24时设备标识</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="以太网帧格式"><a href="#以太网帧格式" class="headerlink" title="以太网帧格式"></a>以太网帧格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">目的Mac地址</span><br><span class="line">源Mac地址</span><br><span class="line">服务和类型</span><br><span class="line">DATA</span><br><span class="line">帧校验序列</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h2><h5 id="定义-工作在数据链路层，通过识别Mac地址来进行数据转发的设备"><a href="#定义-工作在数据链路层，通过识别Mac地址来进行数据转发的设备" class="headerlink" title="定义    工作在数据链路层，通过识别Mac地址来进行数据转发的设备"></a>定义    工作在数据链路层，通过识别Mac地址来进行数据转发的设备</h5><hr>
+<h4 id="交换机数据转发原理"><a href="#交换机数据转发原理" class="headerlink" title="交换机数据转发原理"></a>交换机数据转发原理</h4><ul>
+<li><h5 id="MAC地址表"><a href="#MAC地址表" class="headerlink" title="MAC地址表"></a>MAC地址表</h5></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">记录交换机每个端口和所连接的设备的MAC地址的映射关系</span><br><span class="line">一个接口可以对应多歌Mac地址</span><br><span class="line">一个Mac地址不能对应多个接口</span><br><span class="line">老化时间：300秒</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h5></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">交换机学习数据帧的源MAC地址，赖活着端口和设备MAC地址的映射关系，写入MAC地址表</span><br><span class="line">交换机检查数据帧的目的MAC地址，从MAC地址表中的映射关系来判断把数据帧从哪个端口法出</span><br><span class="line">交换机对于目的MAC地址不存在于MAC地址表中的数据帧进行广播处理</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="数据帧的转发方式"><a href="#数据帧的转发方式" class="headerlink" title="数据帧的转发方式"></a>数据帧的转发方式</h5></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于目的MAC地址已知的单播帧，交换机查询MAC地址表进行转发</span><br><span class="line">对于目的MAC地址已知的单播帧，交换机进行广播处理</span><br><span class="line">对于广播帧，交换机继续广播处理</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据传输模式"><a href="#数据传输模式" class="headerlink" title="数据传输模式"></a>数据传输模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单播	接收者是某一个设备</span><br><span class="line">广播	接收者是所有其他设备</span><br><span class="line">组播	接收者是某一部分设备</span><br></pre></td></tr></table></figure>
+
+<h4 id="广播域"><a href="#广播域" class="headerlink" title="广播域"></a>广播域</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">网络中所有能接受同样广播消息的设备的集合</span><br><span class="line">默认情况下，交换机的所有端口属于同一个广播域</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p>若本文档有错误</p>
+<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
+<p>电脑端联系作者QQ:2020379570</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/20/%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" data-id="ck98ncu6g0000ikvz18wg971h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-IP的基本原理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/20/IP%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/" class="article-date">
@@ -139,8 +319,11 @@
 
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">A类</span><br><span class="line">	地址范围	1.X.X.X ~ 126.X.X.X</span><br><span class="line">	网络位划分	前8位为网络位，后24位为主机位</span><br><span class="line"></span><br><span class="line">B类</span><br><span class="line">	地址范围	128.X.X.X ~ 191.X.X.X</span><br><span class="line">	网络位划分	前16位为网络位，后16位为主机位</span><br><span class="line"></span><br><span class="line">C类</span><br><span class="line">	地址范围	192.X.X.X ~ 223.X.X.X</span><br><span class="line">	网络位划分	前24位为网络位，后8位为主机位</span><br><span class="line"></span><br><span class="line">D类</span><br><span class="line">	地址范围	224.X.X.X ~ 239.X.X.X</span><br><span class="line">	网络位划分	组播地址，不可用于配置为主机地址</span><br><span class="line">	</span><br><span class="line">E类</span><br><span class="line">	地址范围	240.X.X.X ~ 255.X.X.X</span><br><span class="line">	网络位划分	科研用地址，不对公开放</span><br><span class="line"></span><br><span class="line">IP地址分类用来划分不同的网络规模</span><br></pre></td></tr></table></figure>
 
-
-
+<hr>
+<hr>
+<p>若本文档有错误</p>
+<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
+<p>电脑端联系作者QQ:2020379570</p>
 
       
     </div>
@@ -177,7 +360,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="计算机网络定义：一组自治计算机互联的集合"><a href="#计算机网络定义：一组自治计算机互联的集合" class="headerlink" title="计算机网络定义：一组自治计算机互联的集合"></a>计算机网络定义：一组自治计算机互联的集合</h4><h4 id="计算机网络基本功能"><a href="#计算机网络基本功能" class="headerlink" title="计算机网络基本功能"></a>计算机网络基本功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.资源共享</span><br><span class="line"></span><br><span class="line">2.综合信息服务</span><br><span class="line"></span><br><span class="line">3.分布式处理与负载均衡</span><br></pre></td></tr></table></figure>
+        <h5 id="计算机网络定义：一组自治计算机互联的集合"><a href="#计算机网络定义：一组自治计算机互联的集合" class="headerlink" title="计算机网络定义：一组自治计算机互联的集合"></a>计算机网络定义：一组自治计算机互联的集合</h5><hr>
+<h4 id="计算机网络基本功能"><a href="#计算机网络基本功能" class="headerlink" title="计算机网络基本功能"></a>计算机网络基本功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.资源共享</span><br><span class="line"></span><br><span class="line">2.综合信息服务</span><br><span class="line"></span><br><span class="line">3.分布式处理与负载均衡</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h4 id="计算机网络的类型"><a href="#计算机网络的类型" class="headerlink" title="计算机网络的类型"></a>计算机网络的类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">局域网 LAN：由用户自信建设， 使用私有地址组建的网络</span><br><span class="line">城域网 MAN：由运营商或大规模企业建设，链接城市范围的网络</span><br><span class="line">广域网 WAN：由运营商建设，连接全国各个城域网的网络，又称骨干网、核心网、传输网</span><br></pre></td></tr></table></figure>
@@ -317,19 +501,23 @@
       <ul>
         
           <li>
+            <a href="/2020/04/20/Vlan%E5%92%8CTrunk/">Vlan和Trunk</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/">链路聚合</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/20/IP%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/">IP子网划分</a>
           </li>
         
           <li>
+            <a href="/2020/04/20/%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">以太网交换机工作原理</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/20/IP%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">IP的基本原理</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/">计算机网络概述</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/20/%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">网络参考模型</a>
           </li>
         
       </ul>

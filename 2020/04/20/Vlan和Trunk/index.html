@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vlan和Trunk | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="VLAN的定义 虚拟局域网，用来在二层网络中隔离广播域 不同VLAN的设备在二层网络中无法互相通讯   VLAN的转发过程举例123451. PC发送数据帧进⼊入交换机，会被打上vlan tag；vlan tag中的vlan id就是收到 帧的接⼝口的所属vlan；⼀一旦数据帧被打上vlan tag，就变成了了802.1Q格式的帧 2.交换机检查数据帧的⽬目的MAC地址，进⾏行行判断；如果⽬目的M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vlan和Trunk">
+<meta property="og:url" content="http://yoursite.com/2020/04/20/Vlan%E5%92%8CTrunk/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="VLAN的定义 虚拟局域网，用来在二层网络中隔离广播域 不同VLAN的设备在二层网络中无法互相通讯   VLAN的转发过程举例123451. PC发送数据帧进⼊入交换机，会被打上vlan tag；vlan tag中的vlan id就是收到 帧的接⼝口的所属vlan；⼀一旦数据帧被打上vlan tag，就变成了了802.1Q格式的帧 2.交换机检查数据帧的⽬目的MAC地址，进⾏行行判断；如果⽬目的M">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-20T15:32:57.703Z">
+<meta property="article:modified_time" content="2020-04-20T15:40:53.077Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Vlan和Trunk" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/20/Vlan%E5%92%8CTrunk/" class="article-date">
+  <time datetime="2020-04-20T15:32:57.703Z" itemprop="datePublished">2020-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vlan和Trunk
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="VLAN的定义"><a href="#VLAN的定义" class="headerlink" title="VLAN的定义"></a>VLAN的定义</h4><ul>
+<li><h5 id="虚拟局域网，用来在二层网络中隔离广播域"><a href="#虚拟局域网，用来在二层网络中隔离广播域" class="headerlink" title="虚拟局域网，用来在二层网络中隔离广播域"></a>虚拟局域网，用来在二层网络中隔离广播域</h5></li>
+<li><h5 id="不同VLAN的设备在二层网络中无法互相通讯"><a href="#不同VLAN的设备在二层网络中无法互相通讯" class="headerlink" title="不同VLAN的设备在二层网络中无法互相通讯"></a>不同VLAN的设备在二层网络中无法互相通讯</h5></li>
+</ul>
+<hr>
+<h4 id="VLAN的转发过程举例"><a href="#VLAN的转发过程举例" class="headerlink" title="VLAN的转发过程举例"></a>VLAN的转发过程举例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. PC发送数据帧进⼊入交换机，会被打上vlan tag；vlan tag中的vlan id就是收到 帧的接⼝口的所属vlan；⼀一旦数据帧被打上vlan tag，就变成了了802.1Q格式的帧 </span><br><span class="line"></span><br><span class="line">2.交换机检查数据帧的⽬目的MAC地址，进⾏行行判断；如果⽬目的MAC对应的接⼝口允许 tag中的vlan id通过，则数据帧可以转发；否则，⼴广播处理理该帧&#x2F;丢弃该帧 </span><br><span class="line"></span><br><span class="line">3.数据帧从出接⼝口发往PC前，会剥离vlan tag，使之还原为标准的以太⽹网帧格式</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="802-1Q"><a href="#802-1Q" class="headerlink" title="802.1Q"></a>802.1Q</h4><ul>
+<li><h5 id="在源Mac地址和Type之间携带vlan-tag的帧格式，计算机不不识别"><a href="#在源Mac地址和Type之间携带vlan-tag的帧格式，计算机不不识别" class="headerlink" title="在源Mac地址和Type之间携带vlan tag的帧格式，计算机不不识别"></a>在源Mac地址和Type之间携带vlan tag的帧格式，计算机不不识别</h5></li>
+</ul>
+<hr>
+<h4 id="VLAN工作原理"><a href="#VLAN工作原理" class="headerlink" title="VLAN工作原理"></a>VLAN工作原理</h4><ul>
+<li><h5 id="交换机端口类型"><a href="#交换机端口类型" class="headerlink" title="交换机端口类型"></a>交换机端口类型</h5></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Access</span><br><span class="line">	必须加⼊入到一个vlan，只能加⼊入到一个vlan；从access端口收到的帧，会打上该端口所属vlan的tag；从access端口发出的帧会剥离tag ；</span><br><span class="line">	一般用来连接PC或路由器 ；</span><br><span class="line">	H3C交换机默认所有端口都是access类型属于vlan1；华为是hybrid。</span><br><span class="line"></span><br><span class="line">Trunk</span><br><span class="line">	可以允许多个vlan的数据通过；从trunk端口发出的帧保留vlan tag，但是缺省vlan除外； trunk端口收到未打tag的帧，会重新打上缺省vlan的tag ；</span><br><span class="line">	一般用来连接交换机。</span><br><span class="line">Hybrid</span><br><span class="line">	可以允许多个vlan的数据通过；可以⼿手动配置从Hybrid端口发出的帧，哪个vlan保留留tag，哪个vlan剥离tag；Hybrid收到未打tag的帧，会重新打上缺省vlan的tag ；</span><br><span class="line">	既可以连接PC&#x2F;路由器，也可以连接交换机。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p>若本文档有错误</p>
+<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
+<p>电脑端联系作者QQ:2020379570</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/20/Vlan%E5%92%8CTrunk/" data-id="ck98ncu6v0001ikvza7a2aiyo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">链路聚合</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/20/Vlan%E5%92%8CTrunk/">Vlan和Trunk</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/">链路聚合</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/IP%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/">IP子网划分</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">以太网交换机工作原理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/IP%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">IP的基本原理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

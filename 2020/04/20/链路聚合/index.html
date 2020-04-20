@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>链路聚合 | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口 功能1234提高链路可靠性		聚合组内只要还有物理端口存活，链路就不会中断增加链路传输带宽	避免了STP计算，聚合组内物理端口不会被堵塞				 交换机之间的流量会自动在聚合组内的所有物理端口上负载分担   负载分担 也称负载均衡 聚合后的链路会基于流自动负载分担  常用命令12345678[h3c]interface bridg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="链路聚合">
+<meta property="og:url" content="http://yoursite.com/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口 功能1234提高链路可靠性		聚合组内只要还有物理端口存活，链路就不会中断增加链路传输带宽	避免了STP计算，聚合组内物理端口不会被堵塞				 交换机之间的流量会自动在聚合组内的所有物理端口上负载分担   负载分担 也称负载均衡 聚合后的链路会基于流自动负载分担  常用命令12345678[h3c]interface bridg">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-20T14:25:30.389Z">
+<meta property="article:modified_time" content="2020-04-20T15:31:34.685Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-链路聚合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/" class="article-date">
+  <time datetime="2020-04-20T14:25:30.389Z" itemprop="datePublished">2020-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      链路聚合
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"><a href="#定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口" class="headerlink" title="定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"></a>定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口</h5><hr>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">提高链路可靠性		聚合组内只要还有物理端口存活，链路就不会中断</span><br><span class="line"></span><br><span class="line">增加链路传输带宽	避免了STP计算，聚合组内物理端口不会被堵塞</span><br><span class="line">				 交换机之间的流量会自动在聚合组内的所有物理端口上负载分担</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="负载分担"><a href="#负载分担" class="headerlink" title="负载分担"></a>负载分担</h4><ul>
+<li><h5 id="也称负载均衡"><a href="#也称负载均衡" class="headerlink" title="也称负载均衡"></a>也称负载均衡</h5></li>
+<li><h5 id="聚合后的链路会基于流自动负载分担"><a href="#聚合后的链路会基于流自动负载分担" class="headerlink" title="聚合后的链路会基于流自动负载分担"></a>聚合后的链路会基于流自动负载分担</h5></li>
+</ul>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[h3c]interface bridge-aggregation &#39;number&#39;</span><br><span class="line">创建聚合端⼝口，进⼊入聚合端⼝口视图 </span><br><span class="line"></span><br><span class="line">[h3c-GigabitEthernet 1&#x2F;0&#x2F;1]port link-aggregation group &#39;number&#39; </span><br><span class="line">物理理接⼝口加⼊入聚合组 </span><br><span class="line"></span><br><span class="line">[h3c]display link-aggregation summary </span><br><span class="line">查看聚合链路路信息</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<hr>
+<p>若本文档有错误</p>
+<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
+<p>电脑端联系作者QQ:2020379570</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/" data-id="ck98ncu780002ikvz88r37yxp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/20/Vlan%E5%92%8CTrunk/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vlan和Trunk
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/20/IP%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">IP子网划分</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/20/Vlan%E5%92%8CTrunk/">Vlan和Trunk</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/">链路聚合</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/IP%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/">IP子网划分</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">以太网交换机工作原理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/IP%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">IP的基本原理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
