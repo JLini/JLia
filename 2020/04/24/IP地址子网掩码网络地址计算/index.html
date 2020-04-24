@@ -15,15 +15,15 @@
 
 
 
-<meta name="description" content="链路聚合的定义和功能，及常用到的H3C命令">
+<meta name="description" content="计算网络地址、可用地址范围、广播地址">
 <meta property="og:type" content="article">
-<meta property="og:title" content="链路聚合">
-<meta property="og:url" content="http://yoursite.com/2020/04/21/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/index.html">
+<meta property="og:title" content="IP地址计算">
+<meta property="og:url" content="http://yoursite.com/2020/04/24/IP%E5%9C%B0%E5%9D%80%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97/index.html">
 <meta property="og:site_name" content="">
-<meta property="og:description" content="链路聚合的定义和功能，及常用到的H3C命令">
+<meta property="og:description" content="计算网络地址、可用地址范围、广播地址">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-20T17:14:15.552Z">
-<meta property="article:modified_time" content="2020-04-20T19:07:46.112Z">
+<meta property="article:published_time" content="2020-04-24T11:02:04.000Z">
+<meta property="article:modified_time" content="2020-04-24T11:24:36.132Z">
 <meta property="article:author" content="张佳林">
 <meta name="twitter:card" content="summary">
 
@@ -59,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>链路聚合 | </title>
+<title>IP地址计算 | </title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -206,11 +206,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-链路聚合" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-IP地址子网掩码网络地址计算" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/04/21/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/" class="article-date">
-      <time datetime="2020-04-20T17:14:15.552Z" itemprop="datePublished">2020-04-21</time>
+      <a href="/2020/04/24/IP%E5%9C%B0%E5%9D%80%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97/" class="article-date">
+      <time datetime="2020-04-24T11:02:04.000Z" itemprop="datePublished">2020-04-24</time>
 </a>
 
 
@@ -225,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      链路聚合
+      IP地址计算
     </h1>
   
 
@@ -234,7 +234,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%9F%BA%E6%9C%AC%E7%90%86%E8%AE%BA/">基本理论</a>
+    <a class="article-category-link" href="/categories/%E5%9F%BA%E6%9C%AC%E7%90%86%E8%AE%BA/">基本理论</a><a class="article-category-link" href="/categories/%E5%9F%BA%E6%9C%AC%E7%90%86%E8%AE%BA/IP/">IP</a>
     </div>
 
 
@@ -246,23 +246,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h5 id="定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"><a href="#定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口" class="headerlink" title="定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"></a>定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口</h5><hr>
-<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">提高链路可靠性		聚合组内只要还有物理端口存活，链路就不会中断</span><br><span class="line"></span><br><span class="line">增加链路传输带宽	避免了STP计算，聚合组内物理端口不会被堵塞</span><br><span class="line">				 交换机之间的流量会自动在聚合组内的所有物理端口上负载分担</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.0&#x2F;26</span><br><span class="line">24-26</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1.被划分位几个子网</span><br><span class="line">2.每个子网可用IP地址数量</span><br><span class="line">3.列出每个子网的网络地址、可用地址范围、广播地址</span><br><span class="line"></span><br><span class="line">步骤1.得出下列参数</span><br><span class="line">	1.借位数（新掩码在原掩码之上变长了几位）	&#x3D;2</span><br><span class="line">	2.借位数剩余位数	&#x3D;6</span><br><span class="line">	3.总剩余位数		&#x3D;6</span><br><span class="line">	</span><br><span class="line">步骤2.计算：</span><br><span class="line">	1.被划分的子网数：2^借位数	&#x3D;4</span><br><span class="line">    2.每个子网可用IP地址数量：2^总剩余位数-2&#x3D;62</span><br><span class="line">    3.两个子网间的间隔位数：2^借位段剩余位数&#x3D;64</span><br><span class="line">    4.</span><br><span class="line">    	网络地址</span><br><span class="line">    	192.168.1.0&#x2F;26</span><br><span class="line">    	192.168.1.64&#x2F;26</span><br><span class="line">    	192.168.1.128&#x2F;26</span><br><span class="line">    	192.168.1.192&#x2F;26</span><br><span class="line">    	</span><br><span class="line">    	可用地址范围</span><br><span class="line">    	192.168.1.1-192.168.1.62</span><br><span class="line">    	192.168.1.65-192.168.1.126</span><br><span class="line">    	192.168.1.129-192.168.1.190</span><br><span class="line">    	192.168.1.193-192.168.1.254</span><br><span class="line">    	</span><br><span class="line">    	广播地址</span><br><span class="line">    	192.168.1.63</span><br><span class="line">    	192.168.1.127</span><br><span class="line">    	192.168.1.192</span><br><span class="line">    	192.168.1.255</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h4 id="负载分担"><a href="#负载分担" class="headerlink" title="负载分担"></a>负载分担</h4><ul>
-<li><h5 id="也称负载均衡"><a href="#也称负载均衡" class="headerlink" title="也称负载均衡"></a>也称负载均衡</h5></li>
-<li><h5 id="聚合后的链路会基于流自动负载分担"><a href="#聚合后的链路会基于流自动负载分担" class="headerlink" title="聚合后的链路会基于流自动负载分担"></a>聚合后的链路会基于流自动负载分担</h5></li>
-</ul>
-<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[h3c]interface bridge-aggregation &#39;number&#39;</span><br><span class="line">创建聚合端⼝口，进⼊入聚合端⼝口视图 </span><br><span class="line"></span><br><span class="line">[h3c-GigabitEthernet 1&#x2F;0&#x2F;1]port link-aggregation group &#39;number&#39; </span><br><span class="line">物理理接⼝口加⼊入聚合组 </span><br><span class="line"></span><br><span class="line">[h3c]display link-aggregation summary </span><br><span class="line">查看聚合链路路信息</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<hr>
-<p>若本文档有错误</p>
-<p>手机端请点击<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eu805SRmJnLPzoPSwDbw6gt7kEt73tqo" target="_blank" rel="noopener">联系作者QQ</a></p>
-<p>电脑端联系作者QQ:2020379570</p>
 
       
     </div>
@@ -274,16 +259,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/04/24/IP%E5%9C%B0%E5%9D%80%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97/">
-                    IP地址计算
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/04/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/">
-                    计算机网络概述
+                <a href="/2020/04/21/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/">
+                    链路聚合
                 </a>
             </div>
         
@@ -295,7 +274,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#定义-把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口"><span class="toc-number">1.</span> <span class="toc-text">定义    把链接到同一台交换机上的多歌物理端口捆绑为一个逻辑端口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#功能"><span class="toc-number"></span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#负载分担"><span class="toc-number"></span> <span class="toc-text">负载分担</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#也称负载均衡"><span class="toc-number">1.</span> <span class="toc-text">也称负载均衡</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#聚合后的链路会基于流自动负载分担"><span class="toc-number">2.</span> <span class="toc-text">聚合后的链路会基于流自动负载分担</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常用命令"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a>
+            
         
     </div>
     <style>
@@ -337,15 +316,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/04/24/IP%E5%9C%B0%E5%9D%80%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97/" title="Pre: IP地址计算">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/04/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="Next: 计算机网络概述">
+            <a href="/2020/04/21/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/" title="Next: 链路聚合">
                 <i class="fa fa-angle-right"></i>
             </a>
         
